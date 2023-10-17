@@ -1,0 +1,89 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+
+	body {
+    	background-color: #d5e1ef;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	height: 110vh;
+	}
+
+	#container {
+    	display: flex;
+    	flex-direction: column;
+    	align-items: center;
+    	width: 35vh;
+		height: 55vh;
+    	background-color: white;
+    	border-radius: 10px;
+	}
+
+	#QRCode {
+    	width: 90%;
+    	border-radius: 10px;
+    	margin-top: 5%;
+    	margin-bottom: 10%;
+	}
+
+	.bolded {
+    	font-size: 15px;
+    	font-weight: bolder;
+    	text-align: center;
+	}
+
+	.notBolded {
+    	font-size: 10px;
+    	margin-top: 5px;	
+    	text-align: center;
+    	color: #858b95;
+	}
+</style>
